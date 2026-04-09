@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext';
 const NAV_LINKS = [
   { path: '/dashboard', label: 'DASHBOARD', icon: '◈' },
   { path: '/calendar', label: 'CALENDAR', icon: '◷' },
+  { path: '/notifications', label: 'ALERTS', icon: '🔔' },
   { path: '/notes', label: 'NOTES', icon: '◎' },
   { path: '/profile', label: 'PROFILE', icon: '◉' },
 ];
@@ -22,7 +23,9 @@ export default function Navbar() {
   };
 
   const avatarSrc = user?.avatar
-    ? `http://localhost:5000${user.avatar}`
+    ? user.avatar.startsWith('data:')
+      ? user.avatar
+      : `http://localhost:5000${user.avatar}`
     : null;
 
   return (

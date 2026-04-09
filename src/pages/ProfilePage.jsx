@@ -14,7 +14,11 @@ export default function ProfilePage() {
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
   const fileRef = useRef(null);
 
-  const avatarSrc = user?.avatar ? `http://localhost:5000${user.avatar}` : null;
+  const avatarSrc = user?.avatar
+    ? user.avatar.startsWith('data:')
+      ? user.avatar
+      : `http://localhost:5000${user.avatar}`
+    : null;
 
   const handleProfileSave = async (e) => {
     e.preventDefault();

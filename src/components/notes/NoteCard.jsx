@@ -53,6 +53,7 @@ export default function NoteCard({ note, onEdit }) {
       <div className="flex items-center justify-between mt-3 pt-2 border-t border-slate-800">
         <div className="flex items-center gap-2 text-md text-slate-600 font-orbitron">
           {note.date && <span>📅 {note.date}</span>}
+          {note.time && <span>⏰ {note.time}</span>}
           <span className={`badge ${note.type === 'daily' ? 'badge-in-progress' : 'badge-pending'}`}>
             {note.type.toUpperCase()}
           </span>

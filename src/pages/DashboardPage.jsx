@@ -244,6 +244,7 @@ export default function DashboardPage() {
             <div className="space-y-2">
               {[
                 { to: '/calendar', label: 'OPEN CALENDAR', icon: '◷', color: 'var(--neon-cyan)' },
+                { to: '/notifications', label: 'CHECK ALERTS', icon: '🔔', color: 'var(--neon-yellow)' },
                 { to: '/notes', label: 'VIEW ALL NOTES', icon: '◎', color: 'var(--neon-green)' },
                 { to: '/profile', label: 'EDIT PROFILE', icon: '◉', color: '#a78bfa' },
               ].map(({ to, label, icon, color }) => (

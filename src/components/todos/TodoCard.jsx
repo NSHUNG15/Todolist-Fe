@@ -67,9 +67,16 @@ export default function TodoCard({ todo, onEdit }) {
               </button>
 
               <div className="flex-1 min-w-0">
-                <p className={`text-sm leading-tight ${todo.status === 'completed' ? 'line-through text-slate-500' : 'text-slate-200'}`}>
-                  {todo.title}
-                </p>
+                <div className="flex items-center gap-2">
+                  <p className={`text-sm leading-tight ${todo.status === 'completed' ? 'line-through text-slate-500' : 'text-slate-200'}`}>
+                    {todo.title}
+                  </p>
+                  {todo.time && (
+                    <span className="text-xs text-slate-500 bg-slate-800/50 px-2 py-0.5 rounded uppercase tracking-widest">
+                      {todo.time}
+                    </span>
+                  )}
+                </div>
                 {todo.description && (
                   <p className="text-md text-slate-500 mt-0.5 truncate">{todo.description}</p>
                 )}

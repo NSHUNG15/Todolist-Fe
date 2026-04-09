@@ -8,15 +8,15 @@ const STATUSES = ['pending', 'in-progress', 'completed'];
 
 export default function TodoModal({ isOpen, onClose, date, todo = null }) {
   const { createTodo, updateTodo } = useTodos();
-  const [form, setForm] = useState({ title: '', description: '', date: date || '', status: 'pending', priority: 'medium', tags: '' });
+  const [form, setForm] = useState({ title: '', description: '', date: date || '', time: '08:00', status: 'pending', priority: 'medium', tags: '' });
   const [loading, setLoading] = useState(false);
   const isEditing = !!todo;
 
   useEffect(() => {
     if (todo) {
-      setForm({ ...todo, tags: todo.tags?.join(', ') || '' });
+      setForm({ ...todo, time: todo.time || '08:00', tags: todo.tags?.join(', ') || '' });
     } else {
-      setForm({ title: '', description: '', date: date || '', status: 'pending', priority: 'medium', tags: '' });
+      setForm({ title: '', description: '', date: date || '', time: '08:00', status: 'pending', priority: 'medium', tags: '' });
     }
   }, [todo, date, isOpen]);
 
@@ -91,6 +91,12 @@ export default function TodoModal({ isOpen, onClose, date, todo = null }) {
                   <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">DATE</label>
                   <input type="date" className="input-neon" value={form.date} onChange={set('date')} />
                 </div>
+                <div>
+                  <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">TIME</label>
+                  <input type="time" className="input-neon" value={form.time} onChange={set('time')} />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">PRIORITY</label>
                   <select className="input-neon" value={form.priority} onChange={set('priority')}>

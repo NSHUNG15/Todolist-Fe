@@ -7,12 +7,12 @@ const NOTE_COLORS = ['#00f5ff', '#ff0080', '#00ff88', '#ffdd00', '#7c3aed', '#ff
 
 export default function NoteModal({ isOpen, onClose, note = null, defaultDate = null }) {
   const { createNote, updateNote } = useNotes();
-  const [form, setForm] = useState({ title: '', content: '', date: defaultDate || '', type: 'general', color: '#00f5ff', pinned: false });
+  const [form, setForm] = useState({ title: '', content: '', date: defaultDate || '', time: '08:00', type: 'general', color: '#00f5ff', pinned: false });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (note) setForm({ ...note, date: note.date || '' });
-    else setForm({ title: '', content: '', date: defaultDate || '', type: 'general', color: '#00f5ff', pinned: false });
+    if (note) setForm({ ...note, date: note.date || '', time: note.time || '08:00' });
+    else setForm({ title: '', content: '', date: defaultDate || '', time: '08:00', type: 'general', color: '#00f5ff', pinned: false });
   }, [note, defaultDate, isOpen]);
 
   const set = (k) => (e) => setForm(p => ({ ...p, [k]: e.target.value }));
@@ -77,6 +77,12 @@ export default function NoteModal({ isOpen, onClose, note = null, defaultDate = 
                   <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">DATE (optional)</label>
                   <input type="date" className="input-neon" value={form.date} onChange={set('date')} />
                 </div>
+                <div>
+                  <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">TIME</label>
+                  <input type="time" className="input-neon" value={form.time} onChange={set('time')} />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">COLOR TAG</label>
                   <div className="flex gap-2 mt-1 flex-wrap">

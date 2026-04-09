@@ -63,7 +63,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">EMAIL NODE</label>
+              <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">EMAIL</label>
               <input
                 type="email"
                 className="input-neon"
@@ -75,7 +75,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">PASSPHRASE</label>
+              <label className="block text-md font-orbitron text-slate-400 tracking-wider mb-1.5">PASSWORD</label>
               <input
                 type="password"
                 className="input-neon"

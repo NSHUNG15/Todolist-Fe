@@ -114,7 +114,7 @@ export default function RegisterPage() {
           <p className="text-center text-sm text-slate-500">
             Already online?{' '}
             <Link to="/login" className="text-cyan-400 hover:text-cyan-300 font-orbitron text-md tracking-wider">
-              LOGINádasd
+              LOGIN
             </Link>
           </p>
         </div>

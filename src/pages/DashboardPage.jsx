@@ -47,7 +47,7 @@ export default function DashboardPage() {
   }, [search, filterStatus, filterPriority]);
 
   useEffect(() => {
-    fetchNotes({ type: 'general' });
+    fetchNotes();
   }, []);
 
   const todayTodos = todos.filter(t => t.date === today);
@@ -185,9 +185,13 @@ export default function DashboardPage() {
               <div className="space-y-2">
                 {notes.slice(0, 3).map(note => (
                   <div key={note._id} className="p-3 rounded border border-slate-800 hover:border-slate-700 transition-all"
-                    style={{ borderLeftColor: note.color, borderLeftWidth: '2px' }}>
+                    style={{ borderLeftColor: note.color, borderLeftWidth: '3px' }}>
                     <p className="font-orbitron text-md font-bold mb-1" style={{ color: note.color }}>{note.title || 'UNTITLED'}</p>
                     <p className="text-md text-slate-500 line-clamp-2">{note.content}</p>
+                    <div className="flex justify-between mt-2">
+                      <p className="text-md text-slate-500 line-clamp-1">{note.date}</p>
+                      <p className="text-md text-slate-500 line-clamp-2">{note.time}</p>
+                    </div>
                   </div>
                 ))}
               </div>

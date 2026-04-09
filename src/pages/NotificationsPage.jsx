@@ -12,7 +12,7 @@ export default function NotificationsPage() {
 
   useEffect(() => {
     fetchTodos();
-    fetchNotes({ type: 'general' });
+    fetchNotes();
   }, [fetchTodos, fetchNotes]);
 
   const overdueTodos = todos.filter(todo => todo.date < today && todo.status !== 'completed');

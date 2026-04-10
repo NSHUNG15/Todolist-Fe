@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const DEFAULT_BACKEND_URL = 'https://todolist-be-production.up.railway.app/api';
+const BASE_URL = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? '/api' : DEFAULT_BACKEND_URL);
 
 const api = axios.create({
   baseURL: BASE_URL,

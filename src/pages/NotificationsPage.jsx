@@ -112,8 +112,16 @@ export default function NotificationsPage() {
             <div className="space-y-3">
               {recentNotes.map(note => (
                 <div key={note._id} className="p-4 rounded border border-slate-800/80 hover:border-slate-700 transition-all">
-                  <p className="font-orbitron text-md font-bold text-slate-100 mb-1">{note.title || 'UNTITLED'}</p>
-                  <p className="text-slate-500 text-sm line-clamp-2">{note.content}</p>
+                  <div className="flex justify-between mt-2 grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="font-orbitron text-md font-bold text-slate-100 mb-1">{note.title || 'UNTITLED'}</p>
+                      <p className="text-slate-500 text-sm line-clamp-2">{note.content}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-md text-slate-500 line-clamp-1">{note.date}</p>
+                      <p className="text-md text-slate-500 line-clamp-2">{note.time}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

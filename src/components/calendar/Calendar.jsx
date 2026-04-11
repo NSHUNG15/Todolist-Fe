@@ -71,10 +71,10 @@ export default function Calendar() {
             <button onClick={() => setCurrentDate(d => subMonths(d, 1))}
               className="w-8 h-8 rounded border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all flex items-center justify-center text-sm">‹</button>
             <div>
-              <h2 className="font-orbitron text-sm font-bold neon-text tracking-wider">
+              <h2 className="font-orbitron text-sm font-bold neon-text tracking-wider w-25 items-center flex justify-center">
                 {format(currentDate, 'MMMM').toUpperCase()}
               </h2>
-              <p className="text-md text-slate-500 font-orbitron mono">{format(currentDate, 'yyyy')}</p>
+              <p className="text-md text-slate-500 font-orbitron mono w-25 items-center flex justify-center">{format(currentDate, 'yyyy')}</p>
             </div>
             <button onClick={() => setCurrentDate(d => addMonths(d, 1))}
               className="w-8 h-8 rounded border border-cyan-400/30 text-cyan-400 hover:bg-cyan-400/10 transition-all flex items-center justify-center text-sm">›</button>
